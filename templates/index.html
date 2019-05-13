@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="UTF-8">
+        <title>PiMi Dashboard</title>
+        <link rel="stylesheet" href="dashboardStyle.css">
+    </head>
+    <body>
+        <div class = "container-temps">
+            <div class = "weather">
+                <h1 id = "wx_city"></h1>
+                <p>
+                     <div id = "act_wx"> </div>
+                </p>
+                <p>
+                    <div id="max_temp"></div><br>
+                    <div id = "min_temp"></div><br>
+                </p>
+                </div>
+            <div class = "int-temp">
+                <h1>Room Temperature</h1>
+                <div id="room_temp"></div>
+                <h1>Room Humidity</h1>
+                <div id="room_hum"></div>
+            </div>
+        <div class = "container-news">
+            <div class = "news">
+                <h1>Top Headlines:</h1>
+                <p id="news"></p>
+            </div>
+        </div>
+        <div class = "container-time">
+            <div id="currentTime" class = "time"></div>
+        </div>
+    <script type="text/javascript">
+  const ws = new WebSocket('ws://localhost:9001/');
+
+  ws.onmessage = ({data}) => {
+   const pimiData = JSON.parse(data);
+   document.getElementById("currentTime").innerHTML = pimiData.current_time;
+
+   document.getElementById("news").innerHTML = "";
+   for (var x in pimiData.news_titles)
+   {
+    var node = document.createElement("P");
+    var textnode = document.createTextNode(pimiData.news_titles[x]);
+    node.appendChild(textnode);
+    document.getElementById("news").appendChild(node);
+   }
+
+   document.getElementById("wx_city").innerHTML = pimiData.wx_city;
+   document.getElementById("act_wx").innerHTML = pimiData.act_wx;
+   document.getElementById("max_temp").innerHTML = pimiData.wx_max_temp;
+   document.getElementById("min_temp").innerHTML = pimiData.wx_min_temp;
+   document.getElementById("room_hum").innerHTML = pimiData.room_hum;
+   document.getElementById("room_temp").innerHTML = pimiData.room_hum;
+  };
+    </script>
+</body>
+</html>

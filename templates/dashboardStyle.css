@@ -1,0 +1,84 @@
+body
+{
+    background-color: #000000;
+    font-family: 'Consolas', Monaco, monospace;
+    font-size: 14px;
+    color: #FFFFFF;
+    height: 800px;
+    width: 480px;
+    margin: 15px;
+}
+
+h1
+{
+    font-family: 'Consolas', Monaco, monospace;;
+    font-size: 18px;
+    font-style: bold;
+}
+
+.container-temps
+{
+    display: flex;
+    height: 200px;
+    flex-direction: row;
+    margin-bottom: 75px;
+    justify-content: space-around;
+    margin: 15px;
+    margin-bottom: 150px;
+}
+.container-news
+{
+    display: flex;
+    height: 300px;
+    flex-direction: row;
+}
+.container-time
+{
+    display: flex;
+    height: 30px;
+    flex-direction: row;
+    justify-content: right;
+}
+.temps
+{ 
+    width: 150px;
+    height: 250px;
+    margin: 15px;
+}
+
+.news 
+{   
+    width: 450px;
+    height: 250px;
+    margin: 15px;
+}
+
+.time
+{
+    width: 100px;
+    height: 30px;
+    margin: 10px;
+}
+
+.container-news > div
+{
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    text-align: left;
+    padding: 5px;
+}
+
+.container-temps > div
+{
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    text-align: left;
+    padding: 5px;
+}
+.container-time > div
+{
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+}
